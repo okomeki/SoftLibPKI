@@ -23,7 +23,7 @@ import net.siisise.security.block.Block;
  * RFC 8018 6. Encryption Schemes
  * パスワードからIVと暗号鍵を生成して暗号化する方式.
  * 費用順的なPADDINGと同じなので暗号の方に
- * @deprecated DESなどを使用するため旧式
+ * @deprecated DES,RC2などを使用するため旧式
  */
 public class PBES1 implements PBES {
 
@@ -33,11 +33,18 @@ public class PBES1 implements PBES {
     
     /**
      *
-     * @param block
-     * @param digest
-     * @param password
-     * @param salt
-     * @param c
+     * A.3.
+     * pbeWithMD2AndDES
+     * pbeWithMD2AndRC2
+     * pbeWithMD5AndDES
+     * pbeWithMD5AndRC2
+     * pbeWithSHA1AndDES
+     * pbeWithSHA1AndRC2
+     * @param block DES/CBC RC2/CBC
+     * @param digest PBKDFのパラメータ
+     * @param password PBKDFのパラメータ
+     * @param salt PBKDFのパラメータ
+     * @param c ハッシュ繰り返し数 PBKDFのパラメータ
      */
     public void init(Block block, MessageDigest digest, byte[] password, byte[] salt, int c) {
         this.block = block;
@@ -57,8 +64,8 @@ public class PBES1 implements PBES {
     /**
      * 基本1回のみ。2回目以降初期化せずに使えるかもしれない
      * 毎回padding付き
-     * @param message
-     * @return 
+     * @param message M メッセージ
+     * @return C = encrypt(EM)
      */
     @Override
     public byte[] encrypt(byte[] message) {
@@ -90,8 +97,8 @@ public class PBES1 implements PBES {
     
     /**
      *
-     * @param message
-     * @return
+     * @param message padding されているもの
+     * @return デコードされたもの
      */
     @Override
     public byte[] decrypt(byte[] message) {

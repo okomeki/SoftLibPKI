@@ -15,7 +15,9 @@
  */
 package net.siisise.ietf.pkcs5;
 
+import net.siisise.ietf.PKCS12;
 import net.siisise.io.PacketA;
+import net.siisise.iso.asn1.tag.OBJECTIDENTIFIER;
 import net.siisise.security.mac.MAC;
 
 /**
@@ -24,6 +26,9 @@ import net.siisise.security.mac.MAC;
  * RFC 8018 PKCS #5 v2.1
  */
 public class PBKDF2 implements PBKDF {
+    
+    public static final OBJECTIDENTIFIER PKCS5 = PKCS12.PKCS.sub(5); // 仮
+    public static final OBJECTIDENTIFIER OID = PKCS5.sub(12); // 仮
     
     private MAC prf;
     

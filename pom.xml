@@ -103,6 +103,12 @@
         </dependency>
         <dependency>
             <groupId>net.siisise</groupId>
+            <artifactId>softlib-rfc</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>net.siisise</groupId>
             <artifactId>softlib-xml</artifactId>
             <version>1.0.1-SNAPSHOT</version>
             <type>jar</type>

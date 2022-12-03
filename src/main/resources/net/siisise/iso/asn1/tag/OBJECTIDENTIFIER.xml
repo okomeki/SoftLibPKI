@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ http://www.oid-info.com/get/
+-->
+<root>
+    <key oid="1" name="ISO">
+        <key oid="2" name="member-body">
+            <key oid="840" name="us">
+                <key oid="113549" name="rsadsi">
+                    <key oid="1" name="PKCS">
+                        <key oid="1" name="PKCS-1">
+                            <key oid="1" name="RSA Encryption"/>
+                            <key oid="2" name="MD2 with RSA encryption"/>
+                            <key oid="3" name="md4WithRSAEncryption"/>
+                            <key oid="4" name="MD5 with RSA encryption"/>
+                            <key oid="5" name="SHA-1 with RSA Encryption"/>
+                            <key oid="6" name="rsaOAEPEncryptionSET"/>
+                            <key oid="7" name="id-RSAES-OAEP"/>
+                            <key oid="10" name="RSASSA-PSS"/>
+                            <key oid="11" name="sha256WithRSAEncryption"/>
+                        </key>
+                        <key oid="5" name="PKCS-5">
+                            <key oid="1" name="pbeWithMD2AndDES-CBC"/>
+                            <key oid="3" name="pbeWithMD5AndDES-CBC"/>
+                            <key oid="4" name="pbeWithMD2AndRC2-CBC"/>
+                            <key oid="6" name="pbeWithMD5AndRC2-CBC"/>
+                            <key oid="10" name="pbeWithSHA1AndDES-CBC"/>
+                            <key oid="11" name="pbeWithSHA1AndRC2-CBC"/>
+                            <key oid="12" name="id-PBKDF2"/>
+                            <key oid="13" name="id-PBES2"/>
+                            <key oid="14" name="id-PBMAC1"/>
+                            <key oid="16" name="modules">
+                                <key oid="2" name="pkcs5v2-1"/>
+                            </key>
+                        </key>
+                    </key>
+                    <key oid="2" name="digestAlgorithm">
+                        <key oid="7" name="id-hmacWithSHA1"/>
+                        <key oid="8" name="id-hmacWithSHA224"/>
+                        <key oid="9" name="id-hmacWithSHA256"/>
+                        <key oid="10" name="id-hmacWithSHA384"/>
+                        <key oid="11" name="id-hmacWithSHA512"/>
+                        <key oid="12" name="id-hmacWithSHA512-224"/>
+                        <key oid="13" name="id-hmacWithSHA512-256"/>
+                    </key>
+                    <key oid="3" name="encryptionAlgorithm">
+                        <key oid="2" name="rc2CBC"/>
+                        <key oid="7" name="des-EDE3-CBC"/>
+                        <key oid="9" name="rc5-CBC-PAD"/>
+                    </key>
+                </key>
+            </key>
+        </key>
+        <key oid="3" name="identified-organization">
+            <key oid="6" name="US Department of Defense">
+                <key oid="1" name="OID assignments from 1.3.6.1 - Internet">
+                    <key oid="4" name="private: Private Projects">
+                        <key oid="1" name="enterprise, enterprises">
+                            <key oid="11129" name="Google OID">
+                                <key oid="2" name="">
+                                    <key oid="4" name="">
+                                        <key oid="2" name="Certificate Transparency"/>
+                                    </key>
+                                </key>
+                            </key>
+                            <key oid="44947" name="Let's Encrypt">
+                            </key>
+                        </key>
+                    </key>
+                    <key oid="5" name="IANA Security-related objects">
+                        <key oid="5" name="Mechanisms">
+                            <key oid="7" name="pkix" description="">
+                                <key oid="1" name="pe: PKIX certificate extensions" descripion="Public-Key Infrastructure X.509 (PKIX) certificate extensions">
+                                    <key oid="1" name="id-pe-authorityInfoAccess"/>
+                                </key>
+                                <key oid="2" name="qt: PKIX Policy Qualifier Types">
+                                    <key oid="1" name="cps PKIX CPS Pointer Qualifier"/>
+                                </key>
+                                <key oid="3" name="kp: Extended Key Purposes" description="Extended Key Purposes (KPs)">
+                                    <key oid="1" name="serverAuth"/>
+                                    <key oid="2" name="clientAuth"/>
+                                    <key oid="3" name="codeSigning"/>
+                                    <key oid="4" name="emailProtection"/>
+                                    <key oid="21" name="secureShellClient"/>
+                                    <key oid="22" name="secureShellServer"/>
+                                </key>
+                                <key oid="48" name="ad: Access descriptors">
+                                    <key oid="1" name="ocsp: Online Certificate Statrus Protocol"/>
+                                    <key oid="2" name="caIssuers"/>
+                                </key>
+                            </key>
+                        </key>
+                    </key>
+                </key>
+            </key>
+            <key oid="14" name="oiw">
+                <key oid="3" name="secsig">
+                    <key oid="2" name="algorithms">
+                        <key oid="7" name="desCBC"/>
+                        <key oid="26" name="id-sha1"/>
+                    </key>
+                </key>
+            </key>
+        </key>
+    </key>
+    <key oid="2" name="ISO/ITU-T">
+        <key oid ="5" name="X.500 Directory Service">
+            <key oid="4" name="X.500 attribute type">
+                <key oid="3" name="id-at-commonName"/>
+                <key oid="6" name="id-at-countryName"/>
+                <key oid="10" name="id-at-organizationName"/>
+            </key>
+            <key oid="29" name="certificateExtension (id-ce)">
+                <key oid="14" name="Subject Key Identifier"/>
+                <key oid="15" name="Key Usage"/>
+                <key oid="17" name="Subject Alternative Name"/>
+                <key oid="19" name="Basic Constraints"/>
+                <key oid="32" name="Certificate Policies"/>
+                <key oid="35" name="Authority Key Identifier"/>
+                <key oid="37" name="Extended key usage"/>
+            </key>
+        </key>
+        <key oid="16" name="country">
+            <key oid="840" name="US">
+                <key oid="1" name="organization">
+                    <key oid="101" name="gov">
+                        <key oid="3" name="csor">
+                            <key oid="4" name="nistAlgorithms">
+                                <key oid="2" name="hashalgs">
+                                    <key oid="1" name="sha256"/>
+                                    <key oid="2" name="sha384"/>
+                                    <key oid="3" name="sha512"/>
+                                    <key oid="4" name="sha224"/>
+                                </key>
+                            </key>
+                        </key>
+                    </key>
+                </key>
+            </key>
+        </key>
+        <key oid="23" name="international-organizations">
+            <key oid="140" name="ca-browser-forum">
+                <key oid="1" name="certificate-prolicies">
+                    <key oid="2" name="baseline-requirements">
+                        <key oid="1" name="domain-validated"/>
+                    </key>
+                </key>
+            </key>
+        </key>
+    </key>
+</root>

@@ -38,6 +38,14 @@ public class PBKDF1 implements PBKDF {
         this.md = md;
     }
     
+    /**
+     * 
+     * @param password
+     * @param salt
+     * @param c
+     * @param dkLen ハッシュ鍵長 (最大値はMDにより異なる)
+     * @return 
+     */
     @Override
     public byte[] pbkdf(byte[] password, byte[] salt, int c, int dkLen) {
         return pbkdf1(md, password, salt, c, dkLen);

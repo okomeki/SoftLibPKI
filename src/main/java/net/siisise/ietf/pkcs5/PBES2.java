@@ -15,6 +15,7 @@
  */
 package net.siisise.ietf.pkcs5;
 
+import java.util.Arrays;
 import net.siisise.security.block.Block;
 import net.siisise.security.mac.MAC;
 
@@ -34,7 +35,7 @@ public class PBES2 implements PBES {
         kdf = new PBKDF2(hmac);
     }
     
-    PBES2() {
+    public PBES2() {
         kdf = new PBKDF2();
     }
     
@@ -62,12 +63,20 @@ public class PBES2 implements PBES {
     
     @Override
     public byte[] encrypt(byte[] message) {
-        // ToDo: padding
-        return block.encrypt(message, 0, message.length);
+        int blength = block.getBlockLength();
+        
+        int padlength = blength - (message.length % blength);
+        byte[] src = new byte[message.length + padlength];
+        System.arraycopy(message, 0, src, 0, message.length);
+        Arrays.fill(src, message.length, src.length, (byte)padlength);
+        return block.encrypt(src, 0, src.length);
     }
 
     @Override
     public byte[] decrypt(byte[] message) {
-        return block.decrypt(message, 0, message.length);
+        byte[] mpad = block.decrypt(message, 0, message.length);
+        byte[] d = new byte[mpad.length - mpad[mpad.length - 1]];
+        System.arraycopy(mpad, 0, d, 0, d.length);
+        return d;
     }
 }

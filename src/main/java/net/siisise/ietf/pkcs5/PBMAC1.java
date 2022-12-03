@@ -22,11 +22,36 @@ import net.siisise.security.mac.MAC;
  */
 public class PBMAC1 {
 
-    byte[] mac(MAC mac, byte[] password, byte[] salt, int c, int dkLen) {
-        PBKDF kdf = new PBKDF1();
-        int ml = mac.getMacLength();
-        kdf.pbkdf(password, salt, c, dkLen);
-        
-        throw new UnsupportedOperationException();
+    private final PBKDF2 kdf;
+//    private MAC mac;
+    
+    /**
+     * 
+     * @param kdf MD 設定済みのPBKDF2
+     */
+    public PBMAC1(PBKDF2 kdf) {
+        this.kdf = kdf;
+    }
+    
+    public void init(MAC mac) {
+        kdf.init(mac);
+//        this.mac = mac;
+    }
+
+    /**
+     * 
+     * たぶんこんなかんじ? 
+     * @param src
+     * @param mac HMAC-XXXX
+     * @param password
+     * @param salt
+     * @param c 繰り返し最小1000ぐらいから
+     * @return 
+     */
+    public byte[] mac(byte[] src, MAC mac, byte[] password, byte[] salt, int c) {
+        int dkLen = mac.getMacLength();
+        byte[] dk = kdf.pbkdf(password, salt, c, dkLen);
+        mac.init(dk);
+        return mac.doFinal(src);
     }
 }
