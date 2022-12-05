@@ -33,6 +33,25 @@
                                 <key oid="2" name="pkcs5v2-1"/>
                             </key>
                         </key>
+                        <key oid="7" name="pkcs7">
+                            <key oid="1" name="id-data"/>
+                            <key oid="2" name="id-signedData"/>
+                            <key oid="3" name="id-envelopedData"/>
+                            <key oid="5" name="id-digestedData"/>
+                            <key oid="6" name="id-encryptedData"/>
+v                        </key>
+                        <key oid="9" name="pkcs9">
+                            <key oid="3" name="id-contentType"/>
+                            <key oid="4" name="id-messageDigest"/>
+                            <key oid="5" name="id-signingTime"/>
+                            <key oid="6" name="id-countersignature"/>
+                            <key oid="16" name="smime">
+                                <key oid="1" name="ct">
+                                    <key oid="2" name="id-ct-authData"/>
+                                    <key oid="6" name="id-ct-contentInfo"/>
+                                </key>
+                            </key>
+                        </key>
                     </key>
                     <key oid="2" name="digestAlgorithm">
                         <key oid="7" name="id-hmacWithSHA1"/>
