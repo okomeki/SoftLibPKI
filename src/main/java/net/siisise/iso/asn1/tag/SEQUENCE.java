@@ -23,7 +23,16 @@ import net.siisise.iso.asn1.ASN1Tag;
  *
  */
 public class SEQUENCE extends ASN1Struct implements ASN1Tag {
-    
+
+    public SEQUENCE() {
+        super(ASN1.SEQUENCE);
+    }
+
+    // 仮
+    public SEQUENCE SET() {
+        return new SEQUENCE(ASN1.SET);
+    }
+
     public SEQUENCE( ASN1 id ) {
         super(id);
     }

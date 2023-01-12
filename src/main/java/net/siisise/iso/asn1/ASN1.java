@@ -22,6 +22,7 @@ import java.math.BigInteger;
  * 
  * RFC 4049→6019 ASN.1で日付と時刻 とか
  * RFC 5280 Appendix A.
+ * RFC 5911 5912 未読
  * JIS X 5603
  * デコーダー込み
  */

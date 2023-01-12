@@ -48,9 +48,9 @@ import org.w3c.dom.Document;
 public class ASN1Decoder {
 
     enum EncodeType {
-        BER,
-        CER,
-        DER,
+        BER, // Basic Encoding Rules
+        CER, //
+        DER, // Distinguished EncodingRules (BER + 正規化 ソート等) -> PEM化可能
         XER,
         JER
     }
@@ -294,30 +294,7 @@ public class ASN1Decoder {
     // http://www.trustss.co.jp/smnDataFormat430.html
     public static void main(String[] argv) {
         try {
-//            byte[] data = BASE64.load("NEW CERTIFICATE REQUEST", "C:/home/201206test.csr");
-//
-//             Map<String,Object> src = PEM.load("PRIVATE KEY", "C:/home/pki/siisiseprivkey.pem");
-//             Map<String,Object> src = PEM.load("CERTIFICATE", "C:/home/pki/siisisecert.pem");
-             Map<String,Object> src = PEM.load("CERTIFICATE", "C:/home/pki/siisise-net (2).pem");
-             
-//            byte[] src = BASE64.load("RSA PRIVATE KEY", "C:/home/pki/clientA.key");
-//            byte[] src = BASE64.load("RSA PRIVATE KEY", "C:/home/pki/okome20190714.opensshnopass.key");
-//            byte[] src = BASE64.load("CERTIFICATE REQUEST", "C:/home/pki/clientA.req");
-//            byte[] src = BASE64.load("CERTIFICATE", "C:/home/pki/clientA.crt");
-//           byte[] src = FileIO.binRead("C:/home/p12/COMODOECCCertificationAuthority.p7c");
-//           byte[] data = binRead("C:/home/pki/p12/m_sato2008.p12");
-//            byte[] src = FileIO.binRead("C:/home/pki/p12/smime2009.p12");
-//            byte[] src = BASE64.load("CERTIFICATE","C:/home/pki/wwwgooglecom.crt");
-//            byte[] src = BASE64.load("CERTIFICATE","C:/home/pki/serverA.crt");
-//        byte[] src = binRead("C:/home/m_sato20171203.p12");
-//        byte[] src = FileIO.binRead("C:/home/pki/clientB.p12");
-//        byte[] src = binRead("C:/home/p12/COMODOECCCertificationAuthority.der");
-//           String pass = "enya1652";
-//           byte[] data = binRead("C:/home/p12/nopass.p12");
-            //byte[] data = BASE64.load("RSA PRIVATE KEY", "C:/home/pki/clientA.key");
-
-            //data = binRead("cl:/home/p12/2012bb1.p12");
-            //InputStream in = new FileInputStream( "cl:\\home\\pki\\clientA.p12" );
+            Map<String,Object> src = PEM.load("CERTIFICATE", "example.pem");
             byte[] result;
             byte[] enc = (byte[]) src.get(null);
             List<ASN1Object> asnobjs = ASN1Util.toASN1List(enc);

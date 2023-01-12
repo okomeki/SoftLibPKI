@@ -7,7 +7,7 @@
         <key oid="2" name="member-body">
             <key oid="840" name="us">
                 <key oid="113549" name="rsadsi">
-                    <key oid="1" name="PKCS">
+                    <key oid="1" name="pkcs">
                         <key oid="1" name="PKCS-1">
                             <key oid="1" name="RSA Encryption"/>
                             <key oid="2" name="MD2 with RSA encryption"/>
@@ -19,7 +19,7 @@
                             <key oid="10" name="RSASSA-PSS"/>
                             <key oid="11" name="sha256WithRSAEncryption"/>
                         </key>
-                        <key oid="5" name="PKCS-5">
+                        <key oid="5" name="pkcs-5">
                             <key oid="1" name="pbeWithMD2AndDES-CBC"/>
                             <key oid="3" name="pbeWithMD5AndDES-CBC"/>
                             <key oid="4" name="pbeWithMD2AndRC2-CBC"/>
@@ -39,7 +39,7 @@
                             <key oid="3" name="id-envelopedData"/>
                             <key oid="5" name="id-digestedData"/>
                             <key oid="6" name="id-encryptedData"/>
-v                        </key>
+                        </key>
                         <key oid="9" name="pkcs9">
                             <key oid="3" name="id-contentType"/>
                             <key oid="4" name="id-messageDigest"/>
@@ -122,7 +122,7 @@ v                        </key>
             </key>
         </key>
     </key>
-    <key oid="2" name="ISO/ITU-T">
+    <key oid="2" name="joint-iso-itu-t">
         <key oid ="5" name="X.500 Directory Service">
             <key oid="4" name="X.500 attribute type">
                 <key oid="3" name="id-at-commonName"/>
@@ -140,11 +140,16 @@ v                        </key>
             </key>
         </key>
         <key oid="16" name="country">
-            <key oid="840" name="US">
+            <key oid="840" name="us">
                 <key oid="1" name="organization">
                     <key oid="101" name="gov">
                         <key oid="3" name="csor">
                             <key oid="4" name="nistAlgorithms">
+                                <key oid="1" name="aes">
+                                    <key oid="2" name="aes128-CBC-PAD"/>
+                                    <key oid="22" name="aes192-CBC-PAD"/>
+                                    <key oid="42" name="aes256-CBC-PAD"/>
+                                </key>
                                 <key oid="2" name="hashalgs">
                                     <key oid="1" name="sha256"/>
                                     <key oid="2" name="sha384"/>

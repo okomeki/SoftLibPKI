@@ -271,6 +271,11 @@ public class ASN1Struct extends ASN1Object<List<ASN1Object>> {
         list.set(index, obj);
     }
 
+    /**
+     * オブジェクトを奥深くに追加/更新する.
+     * @param obj
+     * @param index 巧妙な位置
+     */
     void set(ASN1Object obj, int... index) {
         if (index.length > 1) {
             int[] idx = new int[index.length - 1];
@@ -281,15 +286,20 @@ public class ASN1Struct extends ASN1Object<List<ASN1Object>> {
         }
     }
 
-    void add(ASN1Object obj) {
+    public void add(ASN1Object obj) {
         list.add(obj);
     }
 
-    void add(int index, ASN1Object obj) {
+    public void add(int index, ASN1Object obj) {
         list.add(index, obj);
     }
 
-    void add(ASN1Object obj, int... index) {
+    /**
+     * オブジェクトを奥深くに追加する.
+     * @param obj
+     * @param index 巧妙な位置
+     */
+    public void add(ASN1Object obj, int... index) {
         if (index.length > 1) {
             int[] idx = new int[index.length - 1];
             System.arraycopy(index, 1, idx, 0, idx.length);

@@ -26,6 +26,10 @@ import org.w3c.dom.Element;
  */
 public class NULL extends ASN1Object implements ASN1Tag {
 
+    public NULL() {
+        super(ASN1.NULL);
+    }
+
     public NULL( ASN1 id ) {
         super( id );
     }
@@ -51,6 +55,7 @@ public class NULL extends ASN1Object implements ASN1Tag {
     public void decodeXML(Element element) {
     }
     
+    @Override
     public String toString() {
         return ASN1.valueOf(this.getId()).name();
     }

@@ -35,7 +35,12 @@ public class OCTETSTRING extends ASN1Object<byte[]> implements ASN1Tag {
     public OCTETSTRING() {
         super( ASN1.OCTETSTRING );
     }
-    
+
+    public OCTETSTRING(byte[] d) {
+        super( ASN1.OCTETSTRING );
+        data = d; // コピーしたほうがいい?
+    }
+
     @Override
     public byte[] encodeBody() {
         return data;

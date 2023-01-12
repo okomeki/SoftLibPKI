@@ -75,6 +75,14 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
             this.map = map;
         }
         
+        OID get(String id) {
+            return map.get(id);
+        }
+        
+        void put(OID oid) {
+            map.put(oid.oid, oid);
+        }
+        
         @Override
         public String toString() {
             StringBuilder str = new StringBuilder();
@@ -112,7 +120,7 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
             OID newKey = new OID();
             newKey.oid = etag.getAttribute("oid");
             newKey.name = etag.getAttribute("name");
-            key.getMap().put( newKey.oid, newKey );
+            key.put( newKey );
             setKey( newKey, etag );
         }
     }
@@ -120,7 +128,11 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
     public OBJECTIDENTIFIER() {
         super(ASN1.OBJECTIDENTIFIER);
     }
-    
+
+    /**
+     * id 起こし.
+     * @param id ドット区切りid
+     */
     public OBJECTIDENTIFIER(String id) {
         this();
         setValue(id);
@@ -209,7 +221,7 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
         OID key = root;
         StringBuilder name = new StringBuilder();
         for ( int i = 0; i < list.size(); i++ ) {
-            if ( key != null ) key = key.getMap().get( list.get(i) );
+            if ( key != null ) key = key.get( list.get(i) );
             name.append(".");
             if ( key != null ) {
                 String kname = key.getName();
@@ -224,16 +236,16 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
         }
         return name.substring(1);
     }
-    
+
     private OID getOID() {
         OID key = root;
         for ( String n : list ) {
-            OID newID = key.getMap().get(n);
+            OID newID = key.get(n);
             if ( newID == null ) {
                 newID = new OID();
                 newID.oid = n;
                 newID.name = "Unknown" + n;
-                key.map.put(n, newID);
+                key.put(newID);
             }
             key = newID;
         }
@@ -245,7 +257,7 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
         String name = new String();
         for ( int i = 0; i < list.size(); i++ ) {
             if ( key != null ) {
-                key = key.getMap().get( list.get(i) );
+                key = key.get( list.get(i) );
             }
             if ( key != null ) {
                 name = key.getName();
@@ -271,12 +283,32 @@ public class OBJECTIDENTIFIER extends ASN1Object<String> implements ASN1Tag {
         list = Arrays.asList( identifier.split("\\."));
     }
     
-    public OBJECTIDENTIFIER sub(String id) {
-        return new OBJECTIDENTIFIER(getValue() + "." + id);
+    /**
+     * 差分で作る
+     * @param id 追加枝番号
+     * @return 正版
+     */
+    public OBJECTIDENTIFIER sub(String... id) {
+        StringBuilder oid = new StringBuilder(getValue());
+        for ( String i : id ) {
+            oid.append(".");
+            oid.append(i);
+        }
+        return new OBJECTIDENTIFIER(oid.toString());
     }
 
-    public OBJECTIDENTIFIER sub(long id) {
-        return sub(Long.toString(id));
+    /**
+     * 差分で作る
+     * @param id 追加枝番号
+     * @return 正版
+     */
+    public OBJECTIDENTIFIER sub(long... id) {
+        StringBuilder oid = new StringBuilder(getValue());
+        for ( long i : id ) {
+            oid.append(".");
+            oid.append(i);
+        }
+        return sub(oid.toString());
     }
 
     @Override
